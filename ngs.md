@@ -12,7 +12,8 @@ bwa aln -t 4 hg19bwaidx read1.fastq.gz > read1.bwa
 bwa aln -t 4 hg19bwaidx read2.fastq.gz > read2.bwa
 bwa sampe hg19bwaidx read1.bwa read2.bwa read1.fastq.gz read2.fastq.gz > aligned.sam
 conda install samtools
-samtools view -Sb aligned.sam > aligned.bam
+# samtools view -Sb aligned.sam > aligned.bam
+samtools sort aligned.sam > aligned.bam
 samtools index aligned.bam aligned.bam.bai
 ```
 Now should be viewable by IGV
